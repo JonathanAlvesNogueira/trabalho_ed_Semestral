@@ -31,6 +31,7 @@ public class Tela extends JFrame {
 	private JTextField tfTemaTrabalho;
 	private JTextField tfMetodologia;
 	private JTextField tfConsultaID;
+	private JTextField tfWhatsaapAluno;
 
 	/**
 	 * Launch the application.
@@ -107,12 +108,12 @@ public class Tela extends JFrame {
 		
 		JLabel lblDataDeIncio = new JLabel("Data de início:");
 		lblDataDeIncio.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDataDeIncio.setBounds(10, 132, 112, 20);
+		lblDataDeIncio.setBounds(10, 183, 112, 20);
 		Alunos.add(lblDataDeIncio);
 		
 		JLabel lblPrevisaoConclusao = new JLabel("Previsão de conclusão:");
 		lblPrevisaoConclusao.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPrevisaoConclusao.setBounds(10, 177, 159, 20);
+		lblPrevisaoConclusao.setBounds(10, 228, 159, 20);
 		Alunos.add(lblPrevisaoConclusao);
 		
 		JPanel Grupos = new JPanel();
@@ -345,6 +346,17 @@ public class Tela extends JFrame {
 		btnConsultarAluno.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnConsultarAluno.setBounds(431, 117, 89, 23);
 		Alunos.add(btnConsultarAluno);
+		
+		JLabel lblWhatsaapAluno = new JLabel("Whatsapp:");
+		lblWhatsaapAluno.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblWhatsaapAluno.setBounds(10, 117, 97, 20);
+		Alunos.add(lblWhatsaapAluno);
+		
+		tfWhatsaapAluno = new JTextField();
+		tfWhatsaapAluno.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfWhatsaapAluno.setBounds(132, 120, 254, 19);
+		Alunos.add(tfWhatsaapAluno);
+		tfWhatsaapAluno.setColumns(10);
 		
 		btnGravarAlunos.addActionListener(alunoCont);
 		
