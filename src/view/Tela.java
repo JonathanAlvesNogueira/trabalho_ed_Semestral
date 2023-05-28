@@ -178,24 +178,31 @@ public class Tela extends JFrame {
 		lblIntegrantes.setBounds(210, 242, 155, 20);
 		Grupos.add(lblIntegrantes);
 		
-		JTextArea taIntegrantes = new JTextArea();
-		taIntegrantes.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		taIntegrantes.setBounds(10, 272, 547, 104);
-		Grupos.add(taIntegrantes);
-		
 		JButton btnGravarGrupo = new JButton("Gravar");
 		btnGravarGrupo.setToolTipText("Grava os Integrantes do grupo no Sistema");
 		btnGravarGrupo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnGravarGrupo.setBackground(new Color(128, 255, 128));
-		btnGravarGrupo.setBounds(131, 396, 115, 37);
+		btnGravarGrupo.setBounds(224, 402, 115, 37);
 		Grupos.add(btnGravarGrupo);
 		
 		JButton btnLimparGrupo = new JButton("Limpar");
 		btnLimparGrupo.setToolTipText("Apaga os campos ");
 		btnLimparGrupo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLimparGrupo.setBackground(new Color(255, 181, 181));
-		btnLimparGrupo.setBounds(319, 396, 103, 37);
+		btnLimparGrupo.setBounds(387, 402, 103, 37);
 		Grupos.add(btnLimparGrupo);
+		
+		JTextArea tfIntegrantesGrupo = new JTextArea();
+		tfIntegrantesGrupo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfIntegrantesGrupo.setBounds(10, 275, 547, 111);
+		Grupos.add(tfIntegrantesGrupo);
+		
+		JButton btnInserirAluno = new JButton("Inserir");
+		btnInserirAluno.setBackground(new Color(255, 255, 128));
+		btnInserirAluno.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnInserirAluno.setToolTipText("Pesquisa e Insere aluno no grupo");
+		btnInserirAluno.setBounds(64, 402, 115, 37);
+		Grupos.add(btnInserirAluno);
 		
 		JPanel ConsultarGrupos = new JPanel();
 		tabbedPane.addTab("Consultar Grupo por Área", null, ConsultarGrupos, null);
