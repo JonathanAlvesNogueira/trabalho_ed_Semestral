@@ -4,11 +4,11 @@ public class Aluno {
 
 	public String nome;
 	public String codigo;
-	public String dataInicio;
+	public String whatsapp;
 	
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", codigo=" + codigo + ", dataInicio=" + dataInicio + "]";
+		return "Aluno [nome=" + nome + ", codigo=" + codigo + ", dataInicio=" + whatsapp + "]";
 	}
 	
 
