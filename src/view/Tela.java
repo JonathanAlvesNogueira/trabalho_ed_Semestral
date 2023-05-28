@@ -3,7 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -17,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import controller.AlunoController;
 
-public class Tela1 extends JFrame {
+public class Tela extends JFrame {
 
 	/**
 	 * 
@@ -52,7 +51,7 @@ public class Tela1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Tela1() {
+	public Tela() {
 		setTitle("Sistema de Controle de TCC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 608, 573);
@@ -224,9 +223,9 @@ public class Tela1 extends JFrame {
 		lblGrupo.setBounds(10, 115, 78, 22);
 		ConsultarGrupos.add(lblGrupo);
 		
-		JList list_1_2_1_1 = new JList();
-		list_1_2_1_1.setBounds(10, 158, 339, 183);
-		ConsultarGrupos.add(list_1_2_1_1);
+		JList lGrupos = new JList();
+		lGrupos.setBounds(10, 158, 339, 183);
+		ConsultarGrupos.add(lGrupos);
 		
 		JLabel lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -266,10 +265,10 @@ public class Tela1 extends JFrame {
 		lblInformacoes.setBounds(10, 70, 146, 20);
 		ConsultarGruposID.add(lblInformacoes);
 		
-		JList list_4_1 = new JList();
-		list_4_1.setBackground(Color.WHITE);
-		list_4_1.setBounds(10, 113, 339, 193);
-		ConsultarGruposID.add(list_4_1);
+		JList lInformacoesGrupo = new JList();
+		lInformacoesGrupo.setBackground(Color.WHITE);
+		lInformacoesGrupo.setBounds(10, 113, 339, 193);
+		ConsultarGruposID.add(lInformacoesGrupo);
 		
 		JPanel RegistrarOrientacao = new JPanel();
 		RegistrarOrientacao.setToolTipText("");
@@ -339,6 +338,13 @@ public class Tela1 extends JFrame {
 		
 		
 		AlunoController alunoCont = new AlunoController(tfNomeAluno, tfRAAluno);
+		
+		JButton btnConsultarAluno = new JButton("Consultar");
+		btnConsultarAluno.setBackground(new Color(193, 193, 255));
+		btnConsultarAluno.setToolTipText("Verifica se Aluno ja esta no sistema");
+		btnConsultarAluno.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnConsultarAluno.setBounds(431, 117, 89, 23);
+		Alunos.add(btnConsultarAluno);
 		
 		btnGravarAlunos.addActionListener(alunoCont);
 		
