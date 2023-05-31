@@ -350,11 +350,14 @@ public class Tela extends JFrame {
 		btnConsultar.setBounds(357, 357, 107, 34);
 		RegistrarOrientacao.add(btnConsultar);
 		
-		tfHistorico = new JTextField();
-		tfHistorico.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfHistorico.setBounds(292, 160, 234, 176);
-		RegistrarOrientacao.add(tfHistorico);
-		tfHistorico.setColumns(10);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(292, 160, 234, 176);
+		RegistrarOrientacao.add(scrollPane);
+		
+		JTextArea taHistorico = new JTextArea();
+		scrollPane.setViewportView(taHistorico);
+		taHistorico.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		JLabel lblHistorico = new JLabel("Histórico:");
 		lblHistorico.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -369,7 +372,7 @@ public class Tela extends JFrame {
 		
 		
 		AlunoController alunoCont = new AlunoController(tfNomeAluno, tfRAAluno, tfWhatsappAluno, taAlunosCadastrados);
-		OrientadorController orient = new OrientadorController(tfIdGrup, tfEscrita, tfHistorico);
+		OrientadorController orient = new OrientadorController(tfIdGrup, tfEscrita, taHistorico);
 		
 		
 		JLabel lblWhatsappAluno = new JLabel("Whatsapp:");
@@ -382,6 +385,7 @@ public class Tela extends JFrame {
 		btnGravarGrupo.addActionListener(grupoCont);
 		btnConsultarAlunos.addActionListener(grupoCont);
 		btnGravaOrientacao.addActionListener(orient);
+		btnConsultar.addActionListener(orient);
 		
 	}
 }

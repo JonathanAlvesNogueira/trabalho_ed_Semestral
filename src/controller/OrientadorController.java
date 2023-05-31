@@ -1,33 +1,31 @@
 package controller;
 
 import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import model.Orientador;
 import service.Pilha;
 
 public class OrientadorController implements ActionListener {
 
 	private JTextField tfIDGrupo;
 	private JTextField tfEscrita;
-	private JTextField tfHistorico;
+	private JTextArea taHistorico;
 	Pilha pilha = new Pilha();
 	
-	public OrientadorController(JTextField tfIDGrupo, JTextField tfEscrita, JTextField tfHistorico) {
+	public OrientadorController(JTextField tfIDGrupo, JTextField tfEscrita, JTextArea taHistorico) {
 		super();
 		this.tfIDGrupo = tfIDGrupo;
 		this.tfEscrita = tfEscrita;
-		this.tfHistorico = tfHistorico;
+		this.taHistorico = taHistorico;
 	}
 	
 	
@@ -80,13 +78,38 @@ public class OrientadorController implements ActionListener {
     }
 
     private void consultar() throws Exception {
+        taHistorico.setText(""); // Limpa o campo de histórico
 
+        String path = "C:\\TEMP";
+        String nome = "orientador.csv";
+
+        File dir = new File(path);
+        File arq = new File(path, nome);
+
+        if (dir.exists() && dir.isFile()) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(arq));
+                String linha;
+                while ((linha = bufferedReader.readLine()) != null) {
+                    pilha.push(linha);
+                }
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+        	System.out.println("Arquivo nao encontrado ");
+        }
+
+        StringBuilder historico = new StringBuilder();
         while (!pilha.isEmpty()) {
             String orientacao = pilha.pop();
-           tfHistorico.append(orientacao + "\n");  // Mudar para textArea
+            historico.append(orientacao).append("\n");
         }
+
+        taHistorico.setText(historico.toString());
     }
-	
+
 	
 	
 	
