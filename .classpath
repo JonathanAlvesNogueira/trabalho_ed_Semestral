@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="libs/LibMergeSort.jar"/>
 	<classpathentry kind="lib" path="libs/LibQuickSort.jar"/>
 	<classpathentry kind="lib" path="libs/LibFilaObj.jar"/>
+	<classpathentry kind="lib" path="libs/LibPilhaInt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

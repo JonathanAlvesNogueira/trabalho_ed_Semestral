@@ -1,6 +1,6 @@
-/controller/
-/.gitignore
-/model/
-/service/
+/LibPilhaInt.jar
 /settings/
+/service/
+/controller/
 /view/
+/model/
