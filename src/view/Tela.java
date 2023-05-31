@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -197,11 +199,10 @@ public class Tela extends JFrame {
 		tfidGrupo.setColumns(10);
 		
 		JComboBox cbAreaTrabalho = new JComboBox();
-		cbAreaTrabalho.setModel(new DefaultComboBoxModel(new String[] {"Dados", "Engenharia", "Governança"}));
+		cbAreaTrabalho.setModel(new DefaultComboBoxModel(new String[] {"Dados", "Engenharia", "Governança", "Desenvolvimento", "Redes", "Segurança", "Automação", "Hardware"}));
 		cbAreaTrabalho.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cbAreaTrabalho.setBounds(143, 65, 307, 21);
 		Grupos.add(cbAreaTrabalho);
-		
 		JComboBox cbOrientador = new JComboBox();
 		cbOrientador.setModel(new DefaultComboBoxModel(new String[] {"Professor 1", "Professor 2", "Professor 3"}));
 		cbOrientador.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -222,7 +223,7 @@ public class Tela extends JFrame {
 		spRolagem.setViewportView(taAlunosSistema);
 		taAlunosSistema.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		GrupoController2 grupoCont = new GrupoController2(tfidGrupo, cbAreaTrabalho, tfTemaTrabalho, cbOrientador, tfMetodologia, taIntegrantesGrupo, taAlunosSistema);
+		
 		
 		JPanel ConsultarGruposID = new JPanel();
 		tabbedPane.addTab("Consultar Grupos por ID", null, ConsultarGruposID, null);
@@ -239,12 +240,16 @@ public class Tela extends JFrame {
 		tfConsultaID.setBounds(105, 27, 379, 20);
 		ConsultarGruposID.add(tfConsultaID);
 		
-		JButton btnConsultarID = new JButton("Consultar");
+		JButton btnConsultarID = new JButton("Consultar Grupo");
+		btnConsultarID.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnConsultarID.setToolTipText("Consulta grupo por ID");
 		btnConsultarID.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnConsultarID.setForeground(Color.BLACK);
 		btnConsultarID.setBackground(new Color(193, 193, 255));
-		btnConsultarID.setBounds(406, 191, 106, 34);
+		btnConsultarID.setBounds(406, 191, 133, 35);
 		ConsultarGruposID.add(btnConsultarID);
 		
 		JLabel lblInformacoes = new JLabel("Informações do grupo:");
@@ -252,10 +257,12 @@ public class Tela extends JFrame {
 		lblInformacoes.setBounds(10, 70, 146, 20);
 		ConsultarGruposID.add(lblInformacoes);
 		
-		JList lInformacoesGrupo = new JList();
-		lInformacoesGrupo.setBackground(Color.WHITE);
-		lInformacoesGrupo.setBounds(10, 113, 339, 193);
-		ConsultarGruposID.add(lInformacoesGrupo);
+		JTextArea taInformacoesGrupo = new JTextArea();
+		taInformacoesGrupo.setBounds(30, 136, 282, 210);
+		ConsultarGruposID.add(taInformacoesGrupo);
+		
+		
+		GrupoController2 grupoCont = new GrupoController2(tfidGrupo, cbAreaTrabalho, tfTemaTrabalho, cbOrientador, tfMetodologia, taIntegrantesGrupo, taAlunosSistema, tfConsultaID, taInformacoesGrupo);		
 		
 		JPanel ConsultarGrupos = new JPanel();
 		tabbedPane.addTab("Consultar Grupo por Área", null, ConsultarGrupos, null);
@@ -267,11 +274,10 @@ public class Tela extends JFrame {
 		ConsultarGrupos.add(lblSelecionarArea);
 		
 		JComboBox cbArea = new JComboBox();
-		cbArea.setModel(new DefaultComboBoxModel(new String[] {"Dados", "Engenharia", "Governança"}));
+		cbArea.setModel(new DefaultComboBoxModel(new String[] {"Dados", "Engenharia", "Governança", "Desenvolvimento", "Redes", "Segurança", "Automação", "Hardware"}));
 		cbArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cbArea.setBounds(110, 25, 326, 22);
 		ConsultarGrupos.add(cbArea);
-		
 		JButton btnConsultarSubArea = new JButton("Consultar");
 		btnConsultarSubArea.setToolTipText("Consulta grupo por Sub-Área");
 		btnConsultarSubArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -387,5 +393,6 @@ public class Tela extends JFrame {
 		btnGravaOrientacao.addActionListener(orient);
 		btnConsultar.addActionListener(orient);
 		
+	
 	}
 }
