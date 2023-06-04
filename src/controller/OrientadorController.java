@@ -109,6 +109,7 @@ public class OrientadorController implements ActionListener {
 
         taHistorico.setText(historico.toString());
     }
+}
 
 	
 	
@@ -116,135 +117,6 @@ public class OrientadorController implements ActionListener {
 	
 	
 	
-	
-	
-	
-	
-	
-//	
-//	
-//	
-//	
-//	
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		String cmd = e.getActionCommand();
-//		if(cmd.equals("Lançar")) {
-//			try {
-//				lancar();
-//			} catch (IOException e1) {
-//				e1.printStackTrace();
-//			}
-//		}
-//		if(cmd.equals("Consultar")) {
-//			try {
-//				consultar();
-//			} catch (Exception e1) {
-//				e1.printStackTrace();
-//			}
-//		}
-//	}
-//
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	private void consultar() throws Exception {
-//		
-//		  String path = "C:\\TEMP";
-//		  String nome = "orientador.csv";
-//		  Pilha pilha = new Pilha();
-//
-//		  File dir = new File(path);
-//		  File arq = new File(path, nome);
-//
-//		  if (dir.exists() && dir.isDirectory()) {
-//
-//		   if(arq.exists() && arq.isFile()) {
-//
-//		    FileInputStream fluxo = new FileInputStream(arq);
-//		    InputStreamReader leitor = new InputStreamReader(fluxo);
-//		    BufferedReader buffer = new BufferedReader(leitor);
-//		    String linha = buffer.readLine();
-//
-//		    while(linha != null) {
-//		    // System.out.println(linha);
-//		    pilha.push(linha);
-//		     linha = buffer.readLine();
-//		     System.out.println(pilha.pop());
-//
-//		    }
-//		    buffer.close();
-//		    leitor.close();
-//		    fluxo.close();
-////		    while(!pilha.isEmpty()) {
-////		    	System.out.println(pilha.pop());
-////		    }
-//		    
-//
-//		   }else {
-//		    throw new IOException("Arquivo Não Existe");
-//		   }
-//
-//		  }else {
-//		   throw new IOException("Diretório Inválido");
-//		  }
-//
-//		 }
-//		
-//		
-//		
-//	
-//
-//	private void lancar() throws IOException{
-//		
-//		Orientador ori = new Orientador();
-//		ori.id = tfIDGrupo.getText();
-//		ori.descricao = tfEscrita.getText();
-//		
-//		// mudar para textearea
-//		//tfHistorico.append("O id do grupo é " + ori.id + "e essa foi a orientação: " + ori.descricao);
-//		  
-//		  String path = "C:\\TEMP";
-//		  String nome = "orientador.csv";
-//
-//
-//		  File dir = new File(path);
-//		  File arq = new File(path, nome);
-//
-//		  if(dir.exists() && dir.isDirectory()) {
-//		   boolean existe = false;
-//		   if(arq.exists()) {
-//		    existe = true;
-//		   }
-//		   
-//		   String informacoes = ori.descricao;
-//		   FileWriter escreveArquivo = new FileWriter(arq, existe);
-//		   PrintWriter print = new PrintWriter(escreveArquivo);
-//		   print.write("Id do grupo : " + ori.id + ";" + informacoes);
-//		   print.write("\n");
-//		   print.flush();
-//		   print.close();
-//		   
-//		   
-//		  }else {
-//		   throw new IOException("Diretório Inválido");
-//		  }
-//
-//		 }
-//		
-		
-		
-	}
-	
-
-
 	
 	
 	

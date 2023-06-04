@@ -291,10 +291,6 @@ public class Tela extends JFrame {
 		lblGrupo.setBounds(10, 115, 78, 22);
 		ConsultarGrupos.add(lblGrupo);
 		
-		JList lGrupos = new JList();
-		lGrupos.setBounds(10, 158, 339, 183);
-		ConsultarGrupos.add(lGrupos);
-		
 		JLabel lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblArea.setBounds(10, 27, 66, 18);
@@ -305,6 +301,10 @@ public class Tela extends JFrame {
 		tfSubArea.setBounds(110, 72, 326, 19);
 		ConsultarGrupos.add(tfSubArea);
 		tfSubArea.setColumns(10);
+		
+		JTextArea taArea = new JTextArea();
+		taArea.setBounds(27, 168, 341, 206);
+		ConsultarGrupos.add(taArea);
 		
 		JPanel RegistrarOrientacao = new JPanel();
 		RegistrarOrientacao.setToolTipText("");
@@ -386,12 +386,15 @@ public class Tela extends JFrame {
 		lblWhatsappAluno.setBounds(10, 117, 97, 20);
 		Alunos.add(lblWhatsappAluno);
 		
+		
 		btnGravarAluno.addActionListener(alunoCont);
 		btnExcluirAluno.addActionListener(alunoCont);
 		btnGravarGrupo.addActionListener(grupoCont);
 		btnConsultarAlunos.addActionListener(grupoCont);
 		btnGravaOrientacao.addActionListener(orient);
 		btnConsultar.addActionListener(orient);
+		btnConsultarID.addActionListener(grupoCont);
+		btnConsultarSubArea.addActionListener(grupoCont);
 		
 	
 	}

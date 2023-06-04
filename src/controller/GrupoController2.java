@@ -31,6 +31,8 @@ public class GrupoController2<E> implements ActionListener {
 	private JTextArea taAlunosSistema;
 	private JTextField tfConsultaID;
 	private JTextArea taInformacoesGrupo;
+	
+	
 
 	public GrupoController2(JTextField tfidGrupo, JComboBox<E> cbAreaTrabalho, JTextField tftemaTrabalho,
 			JComboBox<E> cbOrientador, JTextField tfmetodologia, JTextArea taintegrantesGrupo,
@@ -44,7 +46,10 @@ public class GrupoController2<E> implements ActionListener {
 		this.taAlunosSistema = taAlunosSistema;
 		this.tfConsultaID = tfConsultaID;
 		this.taInformacoesGrupo = taInformacoesGrupo;
+		
 	}
+
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -75,44 +80,52 @@ public class GrupoController2<E> implements ActionListener {
 
 	private void consultarGrupo() throws IOException {
 
+		
 		String idGrupo = tfidGrupo.getText();
 
 		String path = "C:\\TEMP\\Grupos.csv"; // Caminho para o arquivo CSV
 		File file = new File(path);
 
 		if (file.exists()) {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String linha = reader.readLine();
+		    BufferedReader reader = new BufferedReader(new FileReader(file));
+		    String linha = reader.readLine();
 
-			while (linha != null) {
-				String[] grupoInfo = linha.split(";");
-				String grupoId = grupoInfo[0]; // ID do grupo atual
+		    while (linha != null) {
+		        String[] grupoInfo = linha.split(";");
+		        String grupoId = grupoInfo[0]; // ID do grupo atual
 
-				if (grupoId.equals(idGrupo)) {
-					// Grupo encontrado, extrai as informações
-					String areaTrabalho = grupoInfo[1];
-					String temaTrabalho = grupoInfo[2];
-					String orientador = grupoInfo[3];
-					String metodologia = grupoInfo[4];
-					String integrantes = grupoInfo[5];
+		        if (grupoId.equals(idGrupo)) {
+		            // Grupo encontrado, extrai as informações
+		            String areaTrabalho = grupoInfo[1];
+		            String temaTrabalho = grupoInfo[2];
+		            String orientador = grupoInfo[3];
+		            String metodologia = grupoInfo[4];
+		            String integrantes = grupoInfo[5];
 
-					taInformacoesGrupo.setText("ID do Grupo: " + grupoId + "\n");
-					taInformacoesGrupo.append("Área de Trabalho: " + areaTrabalho + "\n");
-					taInformacoesGrupo.append("Tema de Trabalho: " + temaTrabalho + "\n");
-					taInformacoesGrupo.append("Orientador: " + orientador + "\n");
-					taInformacoesGrupo.append("Metodologia: " + metodologia + "\n");
-					taInformacoesGrupo.append("Integrantes: " + integrantes + "\n");
+		            taInformacoesGrupo.setText("ID do Grupo: " + grupoId + "\n");
+		            taInformacoesGrupo.append("Área de Trabalho: " + areaTrabalho + "\n");
+		            taInformacoesGrupo.append("Tema de Trabalho: " + temaTrabalho + "\n");
+		            taInformacoesGrupo.append("Orientador: " + orientador + "\n");
+		            taInformacoesGrupo.append("Metodologia: " + metodologia + "\n");
+		            taInformacoesGrupo.append("Integrantes: " + integrantes + "\n");
 
-					break;
-				}
+		            break;
+		        }
 
-				linha = reader.readLine();
-			}
+		        linha = reader.readLine();
+		    }
 
-			reader.close();
+		    reader.close();
 		} else {
-			throw new IOException("Arquivo Não Existe");
+		    throw new IOException("Arquivo Não Existe");
 		}
+
+		
+		
+		
+		
+		
+		
 
 	}
 
@@ -206,4 +219,8 @@ public class GrupoController2<E> implements ActionListener {
 		return buffer.toString();
 
 	}
+
+
+	
+	
 }
